@@ -54,13 +54,12 @@ if __name__ == '__main__':
             img_face = cv2.resize(ing_face, (rect[2], rect[3]), cv2.INTER_NEAREST)
         """
         for rect in face_list:
-            #矩形描画
             cv2.rectangle(img_gray, tuple(rect[0:2]),tuple(rect[0:2]+rect[2:4]), (255,255,255),3)
-            #顔部分の画像の切り出し
+            #顔部分切り出し
             cut_img = img_gray[rect[1]:rect[1]+rect[3],rect[0]:rect[0]+rect[2]]
-            #20分の1のサイズに縮小
+            #20分の1サイズに縮小
             cut_img = cv2.resize(cut_img,(rect[2]//30, rect[3]//30))
-            #元のサイズに戻す。cv2.INTER_NEARESTを使わないと滑らかになる。
+            #元のサイズに戻す cv2.INTER_NEARESTを使わないと滑らかに
             cut_img = cv2.resize(cut_img,(rect[2], rect[3]),cv2.INTER_NEAREST)
             #切り出した画像で元の画像を置き換え
             img_gray[rect[1]:rect[1]+rect[3],rect[0]:rect[0]+rect[2]]=cut_img
