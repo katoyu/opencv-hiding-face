@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
             cv2_background_image = img_gray
 #           cv2_overlay_image = cv2.imread("image1.png", cv2.IMREAD_UNCHANGED)  # IMREAD_UNCHANGEDを指定しα込みで読み込む　#透過なし
-           cv2_overlay_image = cv2.imread("book.png", cv2.IMREAD_UNCHANGED)   #透過あり
+            cv2_overlay_image = cv2.imread("book.png", cv2.IMREAD_UNCHANGED)   #透過あり
             cv2_overlay_image = cv2.resize(cv2_overlay_image, (rect[2],rect[3]))
 
             point = (rect[0], rect[1])
